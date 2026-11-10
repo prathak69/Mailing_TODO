@@ -1,0 +1,30 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #0f172a;
+  color: #38bdf8;
+  border: 1px solid #1e293b;
+  letter-spacing: 0.025em;
+
+  &.is-missed {
+    background-color: #450a0a;
+    color: #f87171;
+    border-color: #991b1b;
+  }
+
+  &.is-done {
+    background-color: #064e3b;
+    color: #34d399;
+    border-color: #065f46;
+  }
+
+  .icon {
+    font-size: 0.8rem;
+  }
+}
