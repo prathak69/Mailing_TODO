@@ -13,9 +13,9 @@ export class TaskStore {
   readonly isLoading = signal<boolean>(false);
   readonly errorMessage = signal<string | null>('');
 
-  readonly pendingTask = computed(() => this.tasks().filter((task) => !task.is_completed));
+  readonly pendingTasks = computed(() => this.tasks().filter((task) => !task.is_completed));
 
-  readonly completedTask = computed(() => this.tasks().filter((task) => task.is_completed));
+  readonly completedTasks = computed(() => this.tasks().filter((task) => task.is_completed));
 
   readonly missedCount = computed(
     () =>

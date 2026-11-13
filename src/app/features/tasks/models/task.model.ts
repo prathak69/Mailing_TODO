@@ -13,13 +13,13 @@ export interface TaskItem {
 export interface TaskCreatePayload {
   title: string;
   description?: string;
-  due_datetime: string;
+  due_date: string;
   alert_email: string;
 }
 
 export interface TaskUpdatePayload {
   title?: string;
   description?: string;
-  due_datetime?: string;
+  due_date?: string;
   is_completed?: boolean;
 }

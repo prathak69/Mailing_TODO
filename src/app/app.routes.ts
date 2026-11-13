@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { CountdownBadge } from './shared/components/countdown-badge/countdown-badge';
-
 export const routes: Routes = [
   {
     path: '',
@@ -8,8 +6,8 @@ export const routes: Routes = [
     redirectTo: '',
   },
   {
-    path: 'time',
+    path: '',
     loadComponent: () =>
-      import('./shared/components/countdown-badge/countdown-badge').then((m) => m.CountdownBadge),
+      import('./features/tasks/pages/task-dashboard/task-dashboard').then((m) => m.TaskDashboard),
   },
 ];

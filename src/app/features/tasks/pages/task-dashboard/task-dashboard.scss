@@ -1,0 +1,74 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 1rem;
+
+    h2 {
+      font-size: 1.35rem;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 0.2rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 1rem;
+
+      .stat-card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-align: right;
+        .label {
+          display: block;
+          font-size: 0.7rem;
+          color: #94a3b8;
+          text-transform: uppercase;
+        }
+        .value {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #38bdf8;
+        }
+        .value.danger {
+          color: #f87171;
+        }
+      }
+    }
+  }
+
+  .error-banner {
+    background: #450a0a;
+    border: 1px solid #991b1b;
+    color: #fca5a5;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+
+  .task-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .empty-notice,
+  .loader {
+    text-align: center;
+    padding: 3rem 0;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+}

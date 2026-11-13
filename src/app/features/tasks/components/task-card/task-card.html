@@ -1,1 +1,31 @@
-<p>task-card works!</p>
+<article class="task-card" [class.completed]="task.is_completed">
+  <div class="checkbox-container">
+    <input
+      type="checkbox"
+      [checked]="task.is_completed"
+      (change)="toggleCompletion.emit(!task.is_completed)"
+      [attr.aria-label]="'Mark ' + task.title + ' as complete'"
+    />
+  </div>
+
+  <div class="content">
+    <header class="card-header">
+      <h4 class="title">{{ task.title }}</h4>
+      <app-countdown-badge [targetIsoDate]="task.due_date" [isDone]="task.is_completed" />
+    </header>
+
+    @if (task.description) {
+      <p class="description">{{ task.description }}</p>
+    }
+
+    <footer class="card-meta">
+      <span class="meta-item">📅 {{ task.due_date | date: 'medium' }}</span>
+      <span class="meta-item">✉️ {{ task.alert_email }}</span>
+      @if (task.missed_email_sent) {
+        <span class="status-pill warning">Alert Dispatched</span>
+      }
+    </footer>
+  </div>
+
+  <button class="delete-action" (click)="delete.emit()" aria-label="Delete task">✕</button>
+</article>

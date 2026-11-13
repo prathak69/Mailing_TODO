@@ -1,1 +1,46 @@
-<p>task-dashboard works!</p>
+<div class="dashboard">
+  <header class="header">
+    <div>
+      <h2>Task Delivery & Realtime SLA Engine</h2>
+      <p class="subtitle">Precision timers with automated SMTP escalation on expiration.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <span class="label">Pending</span>
+        <span class="value">{{ store.pendingTasks().length }}</span>
+      </div>
+      <div class="stat-card">
+        <span class="label">Overdue</span>
+        <span class="value danger">{{ store.missedCount() }}</span>
+      </div>
+    </div>
+  </header>
+
+  @if (store.errorMessage()) {
+    <div class="error-banner">{{ store.errorMessage() }}</div>
+  }
+
+  <section class="creation-slot">
+    <app-task-form-dialog (taskSubmit)="handleCreate($event)" />
+  </section>
+
+  <section class="list-slot">
+    @if (store.isLoading() && store.tasks().length === 0) {
+      <div class="loader">Synchronizing state...</div>
+    }
+
+    <div class="task-grid">
+      @for (task of store.tasks(); track task.id) {
+        <app-task-card
+          [task]="task"
+          (toggleCompletion)="handleToggle(task.id, $event)"
+          (delete)="handleDelete(task.id)"
+        />
+      } @empty {
+        @if (!store.isLoading()) {
+          <div class="empty-notice">No tracked items in pipeline.</div>
+        }
+      }
+    </div>
+  </section>
+</div>

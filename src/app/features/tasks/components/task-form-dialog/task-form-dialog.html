@@ -1,1 +1,44 @@
-<p>task-form-dialog works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()" class="task-form">
+  <div class="row">
+    <div class="field">
+      <label for="title">Title *</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="e.g., Database Backup Audit"
+      />
+    </div>
+
+    <div class="field">
+      <label for="alert_email">Alert Recipient Email *</label>
+      <input
+        id="alert_email"
+        type="email"
+        formControlName="alert_email"
+        placeholder="devops@domain.com"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <label for="due_date">Deadline (Local Date & Time) *</label>
+      <input id="due_date" type="datetime-local" formControlName="due_date" />
+    </div>
+
+    <div class="field">
+      <label for="description">Context / Scope</label>
+      <input
+        id="description"
+        type="text"
+        formControlName="description"
+        placeholder="Optional context..."
+      />
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="submit" [disabled]="form.invalid" class="btn-primary">Register Task</button>
+  </div>
+</form>
